@@ -13,4 +13,4 @@ areTrees slopes (step, s) = map (fromEnum . isTree step s) slopes
 isTree :: Int -> String -> (Int, Int) -> Bool
 isTree step s (x, y)
   | mod step y /= 0 = False
-  | otherwise       = (s !! mod (x * (step `div` y)) (length s)) == '#'
+  | otherwise       = ((cycle s) !! (x * (step `div` y))) == '#'
